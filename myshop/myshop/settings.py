@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'coupons.apps.CouponsConfig',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,4 @@ CART_SESSION_ID = 'cart'
 STRIPE_PUBLISHABLE_KEY = SPK
 STRIPE_SECRET_KEY = SSK
 STRIPE_API_VERSION = '2022-08-01'
+STRIPE_WEBHOOK_SECRET = 'whsec_b630efa9b4a2cadd0c64630b64576982615fe70187f530b218770486041b4670'
