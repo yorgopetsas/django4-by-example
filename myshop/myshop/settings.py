@@ -1,5 +1,5 @@
 from pathlib import Path
-from .dts import SSK, SPK
+from .dts import SSK, SPK, eps, sk
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +10,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^8&u5800lxsyein9b&h0s!l%748&h6y8@!5g0wdazs(ry_)vk6'
+SECRET_KEY = sk
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,4 +128,4 @@ CART_SESSION_ID = 'cart'
 STRIPE_PUBLISHABLE_KEY = SPK
 STRIPE_SECRET_KEY = SSK
 STRIPE_API_VERSION = '2022-08-01'
-STRIPE_WEBHOOK_SECRET = 'whsec_b630efa9b4a2cadd0c64630b64576982615fe70187f530b218770486041b4670'
+STRIPE_WEBHOOK_SECRET = eps
