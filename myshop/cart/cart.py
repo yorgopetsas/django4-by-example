@@ -25,7 +25,6 @@ class Cart:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
-    
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
 
@@ -63,10 +62,10 @@ class Cart:
             except Coupon.DoesNotExist:
                 pass
         return None
-    
+
     def get_discount(self):
         if self.coupon:
-            return Decimal((self.coupon.discount * self.get_total_price()) / 100)
+            return Decimal((self.coupon.discount_amount * self.get_total_price()) / 100)
         return Decimal(0)
     
     def get_total_price_after_discount(self):

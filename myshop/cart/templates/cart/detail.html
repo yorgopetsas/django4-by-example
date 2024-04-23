@@ -57,13 +57,41 @@
                     <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
                 </tr>
                 <tr>
+                    
                     <td>
-                        "{{ cart.coupon.code }}" coupon
-                        ({{ cart.coupon.discount }}% off)
+                    {{ cart.coupon.discount_name  }} <br />
+                    {{ cart.coupon.discount_description  }} <br />
+                    {{ cart.coupon.discount_type }} <br />
+                    {{ cart.coupon.discount_priority  }} <br />
+                    {{ cart.coupon.discount_code  }} <br />
+                    {{ cart.coupon.discount_active  }} <br />
+                    
+                    {% for user in cart.coupon.discount_scope_user.all %}
+                        {{ user.username }}
+                    {% endfor %} <br />
+                    
+                    {% for group in cart.coupon.discount_scope_user_group.all %}
+                        {{ group.name }}
+                    {% endfor %} <br />
+                    
+                    {% for product in cart.coupon.discount_scope_product.all %}
+                        {{ product.name }}
+                    {% endfor %} <br />
+                    
+                    {% for category in cart.coupon.discount_scope_category.all %}
+                        {{ category.name }}
+                    {% endfor %} <br />
+                    
+                    {% for brand in cart.coupon.discount_scope_brand.all %}
+                        {{ brand.brand_name }}
+                    {% endfor %} <br />
+
+                    
+                    <b>{{ cart.coupon.discount_name }}</b> with code <b>({{ cart.coupon.discount_code }})</b>
                     </td>
                     <td colspan="4"></td>
                     <td class="num neg">
-                        - $ {{ cart.get_discount }}
+                        - € {{ cart.get_discount }}
                     </td>
                 </tr>
             {% endif %}
@@ -71,7 +99,7 @@
             <tr class="total">
                 <td>Total</td>
                 <td colspan="4"></td>
-                <td class="num">${{ cart.get_total_price_after_discount|floatformat:2 }}
+                <td class="num">€{{ cart.get_total_price_after_discount|floatformat:2 }}
                 </td>
             </tr>
         </tbody>

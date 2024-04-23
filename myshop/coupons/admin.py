@@ -3,12 +3,11 @@ from .models import Coupon
 
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
-    list_display = ['code', 'valid_from', 'valid_to', 'discount', 'active']
-    list_filter = ['active', 'valid_from', 'valid_to']
-    search_fields = ['code']
+    # pass
+    list_display = ['discount_name', 'discount_active', 'discount_amount', 'discount_validity_start', 'discount_validity_end']
+    list_filter = ['discount_active', 'discount_validity_start', 'discount_validity_end']
+    search_fields = ['discount_code']
+    # filter_horizontal = ['discount_scope_product', 'discount_scope_category', 'discount_scope_brand']
 
-# @admin.register(Coupon)
-# class CouponAdmin(admin.ModelAdmin):
-#     list_display = ['code', 'valid_from', 'valid_to', 'discount', 'active']
-#     list_filter = ['active', 'valid_from', 'valid_to']
-#     search_fields = ['code']
+    class Media:
+            js = ('your_app/js/custom_admin.js',)
