@@ -9,6 +9,6 @@ def order_created(order_id):
     message = f'Dear {order.first_name},\n\n' \
                 f'You have successfully placed an order.' \
                 f'Your order ID is {order.id}.'
-    mail_sent = send_mail(subject, message, 'admin@myshop.com', [order.email])
+    mail_sent = send_mail(subject, message, 'ecommerce@edelsl.com', [order.email])
 
     return mail_sent

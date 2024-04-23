@@ -1,5 +1,5 @@
 from pathlib import Path
-from .dts import SSK, SPK, eps, sk
+from .dts import SSK, SPK, eps, sk, ehp, ehu
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,3 +129,4 @@ STRIPE_PUBLISHABLE_KEY = SPK
 STRIPE_SECRET_KEY = SSK
 STRIPE_API_VERSION = '2022-08-01'
 STRIPE_WEBHOOK_SECRET = eps
+

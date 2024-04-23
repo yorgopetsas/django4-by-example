@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Brand
 from orders.models import Order, OrderItem
 # from django.utils.safestring import mark_safe
+from coupons.models import Brand
 
 import csv
 import datetime
@@ -26,7 +27,6 @@ def export_to_csv(modeladmin, request, queryset):
         data_row.append(value)
     writer.writerow(data_row)
     return response
-# from coupons.models import Coupon
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -55,10 +55,6 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
     actions = [export_to_csv]
 
-
-
-# @admin.register(Coupon)
-# class CouponAdmin(admin.ModelAdmin):
-#     list_display = ['code', 'valid_from', 'valid_to', 'discount', 'active']
-#     list_filter = ['active', 'valid_from', 'valid_to']
-#     search_fields = ['code']
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ['brand_name']

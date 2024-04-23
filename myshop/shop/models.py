@@ -1,6 +1,22 @@
 from django.db import models
 from django.urls import reverse
 
+class Brand(models.Model):
+    # pass
+    brand_name = models.CharField(max_length=50, null=True)
+    # brand_visible = models.BooleanField(default=False)
+    # brand_description = models.CharField(max_length=2500, default="", blank=True, null=True)
+    # brand_image = models.ImageField(upload_to="uploads/brand/",  blank=True, null=True)
+    # brand_title = models.CharField(max_length=100, default="", blank=True, null=True)
+    # brand_url = models.URLField(blank=True, null=True)
+    # brand_allowed_groups = models.ManyToManyField(User, related_name="brand_groups", blank=True)
+
+    def __str__(self):
+        return str(self.brand_name)
+
+    # class Meta:
+    #     verbose_name_plural = "brands"
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
