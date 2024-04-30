@@ -4,8 +4,13 @@ from django.views.decorators.http import require_POST
 from .models import Coupon
 from .forms import CouponApplyForm
 
+def codes_in_cart():
+    pass
+
 @require_POST
 def coupon_apply(request):
+    if code_used == 1:
+        code_used = 0
     code_used = 0
     now = timezone.now()
     form = CouponApplyForm(request.POST)

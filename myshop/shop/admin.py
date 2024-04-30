@@ -35,10 +35,14 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'available', 'created', 'updated']
+    list_display = ['name', 'slug', 'price', 'sku', 'available', 'category', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
+    search_fields = ['name', 'sku']
+    raw_id_fields = ['category']
+    # date_hierarchy = ['created']
+    ordering = ['price', 'available','sku']
     actions = [export_to_csv]
 
 class OrderItemInline(admin.TabularInline):
