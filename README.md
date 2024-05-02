@@ -5,8 +5,9 @@ Start Env:
 .\env\Scripts\activate
 
 Si far I have covered Chapters:
+1
 8
 9
 10
 
-Currently at: 
+Currently at: page 509

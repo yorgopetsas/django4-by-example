@@ -40,15 +40,14 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name', 'sku']
-    raw_id_fields = ['category']
-    # date_hierarchy = ['created']
+    # raw_id_fields = ['category']
+    # date_hierarchy = ['updated']
     ordering = ['price', 'available','sku']
     actions = [export_to_csv]
 
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     raw_id_fields = ['product']
-
 
 export_to_csv.short_description = 'Export to CSV'
 

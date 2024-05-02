@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -94,13 +95,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+LOCALE_PATHS = [BASE_DIR / 'locale',]
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGAUGES = [('en', 'English'), ('es', 'Spanish')]
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'en'
+
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -129,4 +132,3 @@ STRIPE_PUBLISHABLE_KEY = SPK
 STRIPE_SECRET_KEY = SSK
 STRIPE_API_VERSION = '2022-08-01'
 STRIPE_WEBHOOK_SECRET = eps
-

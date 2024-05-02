@@ -33,6 +33,10 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category', args=[self.slug])
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(available=True)
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products',on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
@@ -43,8 +47,11 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     sku = models.CharField(max_length=20)
-
     updated = models.DateTimeField(auto_now=True)
+
+    objects = models.Manager()
+    availabled = PublishedManager()
+
     class Meta:
         ordering = ['name']
         indexes = [models.Index(fields=['id', 'slug']), models.Index(fields=['name']), models.Index(fields=['-created']),]
