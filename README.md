@@ -13,4 +13,4 @@ Si far I have covered Chapters:
 
 Currently at: page 519
 
-Updated Git Account Settings
+Updated Git Account Settings.
