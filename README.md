@@ -9,5 +9,8 @@ Si far I have covered Chapters:
 8
 9
 10
+11 Partly, had some issues with the file structure
 
-Currently at: page 509
+Currently at: page 519
+
+Updated Git Account Settings
